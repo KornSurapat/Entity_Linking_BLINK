@@ -13,4 +13,3 @@ transformers==4.30.2
 colorama==0.4.6
 termcolor==2.3.0
 faiss-cpu>=1.7.4
-#Python 3.12
