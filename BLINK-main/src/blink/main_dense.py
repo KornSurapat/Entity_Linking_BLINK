@@ -15,7 +15,7 @@ import numpy as np
 from colorama import init
 from termcolor import colored
 
-# import blink.ner as NER
+import blink.ner as NER
 from torch.utils.data import DataLoader, SequentialSampler, TensorDataset
 from blink.biencoder.biencoder import BiEncoderRanker, load_biencoder
 from blink.crossencoder.crossencoder import CrossEncoderRanker, load_crossencoder
