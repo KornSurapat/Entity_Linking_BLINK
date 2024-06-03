@@ -72,28 +72,28 @@ def _print_colorful_prediction(
     print(to_print)
 
 
-def _annotate(ner_model, input_sentences):
-    ner_output_data = ner_model.predict(input_sentences)
-    sentences = ner_output_data["sentences"]
-    mentions = ner_output_data["mentions"]
-    samples = []
-    for mention in mentions:
-        record = {}
-        record["label"] = "unknown"
-        record["label_id"] = -1
-        # LOWERCASE EVERYTHING !
-        record["context_left"] = sentences[mention["sent_idx"]][
-            : mention["start_pos"]
-        ].lower()
-        record["context_right"] = sentences[mention["sent_idx"]][
-            mention["end_pos"] :
-        ].lower()
-        record["mention"] = mention["text"].lower()
-        record["start_pos"] = int(mention["start_pos"])
-        record["end_pos"] = int(mention["end_pos"])
-        record["sent_idx"] = mention["sent_idx"]
-        samples.append(record)
-    return samples
+# def _annotate(ner_model, input_sentences):
+#     ner_output_data = ner_model.predict(input_sentences)
+#     sentences = ner_output_data["sentences"]
+#     mentions = ner_output_data["mentions"]
+#     samples = []
+#     for mention in mentions:
+#         record = {}
+#         record["label"] = "unknown"
+#         record["label_id"] = -1
+#         # LOWERCASE EVERYTHING !
+#         record["context_left"] = sentences[mention["sent_idx"]][
+#             : mention["start_pos"]
+#         ].lower()
+#         record["context_right"] = sentences[mention["sent_idx"]][
+#             mention["end_pos"] :
+#         ].lower()
+#         record["mention"] = mention["text"].lower()
+#         record["start_pos"] = int(mention["start_pos"])
+#         record["end_pos"] = int(mention["end_pos"])
+#         record["sent_idx"] = mention["sent_idx"]
+#         samples.append(record)
+#     return samples
 
 
 def _load_candidates(
@@ -379,15 +379,15 @@ def run(
             # biencoder_params["eval_batch_size"] = 1
 
             # Load NER model
-            ner_model = NER.get_model()
+            # ner_model = NER.get_model()
 
             # Interactive
             text = input("insert text:")
 
             # Identify mentions
-            samples = _annotate(ner_model, [text])
+            # samples = _annotate(ner_model, [text])
 
-            _print_colorful_text(text, samples)
+            # _print_colorful_text(text, samples)
 
         else:
             if logger:
