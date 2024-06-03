@@ -41,3 +41,7 @@ data_to_link = [ {
                 ]
 
 _, _, _, _, _, predictions, scores, = main_dense.run(args, None, *models, test_data=data_to_link)
+
+print(predictions)
+print("__________")
+print(scores)
